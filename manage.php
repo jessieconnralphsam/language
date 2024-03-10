@@ -48,7 +48,7 @@ $result = $connection->query($query);
                 </div>
                 <div class="modal-body">
                     <!-- Your form for adding new tutorial goes here -->
-                    <form action="add.php" method="post">
+                    <form action="includes/add.php" method="post">
                         <!-- Form fields -->
                         <div class="form-group">
                             <label for="tutorialName">Tutorial Name</label>
@@ -97,8 +97,8 @@ $result = $connection->query($query);
                             echo "<td>".$row['tutorial_name']."</td>";
                             echo "<td>".$row['embed_key']."</td>";
                             echo "<td>";
-                            echo '<button class="btn btn-primary mb-3" onclick="location.href=\'add.php\'">Edit</button> ';
-                            echo '<button class="btn btn-danger mb-3" onclick="location.href=\'add.php\'">Delete</button>';                        
+                            echo '<button class="btn btn-primary mb-3">Edit</button> ';
+                            echo '<button class="btn btn-danger mb-3">Delete</button>';                        
                             echo "</td>";
                             echo "</tr>";
                         }

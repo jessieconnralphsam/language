@@ -19,7 +19,7 @@
             <p class="text-center">Search word below</p>  
         </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
             <div class="border border-success p-2 rounded-4 d-flex justify-content-center" style="--bs-border-opacity: .5;">
                 <div class="row">
                     <div class="row">
@@ -33,12 +33,17 @@
                     </div>
                 </div>
             </div>
+    </div> -->
+    <div class="container border border-success p-2 rounded-4 d-flex justify-content-center" style="--bs-border-opacity: .5; width: 300px;">
+        <input id="searchInput" type="text" class="form-control border-0 bg-transparent">
+        <img id="searchImage" src="assets/img/search.png" alt="Description of the image" width="40">
     </div>
     <div class="container" style="text-align: center;">
         <div class="container"><h1>Result</h1></div>
         <iframe id="tutorialVideo" width="300" height="200" src="" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="container">
+    <h1 class="text-center mt-2" id="result" style="color: #f0bf53;"></h1>
+    <!-- <div class="container">
         <div class="row">
             <div class="col col-md-1">
 
@@ -46,9 +51,9 @@
             <div class="col col-md-6 mx-1" style="--bs-border-opacity: .5;">
                 <div class="row">
                     <div class="row">
-                        <div class="col-9 col-md-10 mx-1 ">
+                        <div class="col-9 col-md-10 mx-1 border">
                             <div style="margin: 1rem;"></div>
-                            <h3 id="result" style="color: #f0bf53;"></h3>
+                            <h3 class="text-center" id="result" style="color: #f0bf53;"></h3>
                         </div>
                         <div class="col-1 col-md-1 mt-2 ">
                             
@@ -61,7 +66,7 @@
             </div>
             <div style="margin: 2rem;"></div>
         </div>
-    </div>
+    </div> -->
     <script>
     var container = document.getElementById("container-home");
     container.addEventListener("click", function() {

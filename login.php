@@ -1,4 +1,9 @@
 <html lang="en">
+<?php
+if(isset($_GET['invalid']) && $_GET['invalid'] == 'true'){
+    echo "<script>alert('Invalid username or password. Please try again.');</script>";
+}
+?>
 <?php include 'includes/header.php'; ?>
 <body style="background-color: #e8f3e2;">
     <div class="container">

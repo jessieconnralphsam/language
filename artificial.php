@@ -64,7 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script type="text/javascript">
         // the link to your model provided by Teachable Machine export panel
-        const URL = "http://localhost/sign_languange/";
+        const URL = "http://localhost/language/";
 
         let model, webcam, labelContainer, maxPredictions;
 

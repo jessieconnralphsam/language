@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../manage.php"); // Change to your desired page
         exit();
     } else {
-        // Incorrect username or password
-        echo "Invalid username or password.";
+        header("Location: ../login.php?invalid=true"); // Add a parameter indicating invalid login
+        exit();
     }
 }
 
