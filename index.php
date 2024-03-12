@@ -26,6 +26,7 @@
                 <div class="container container-letsgo"  id="container-intro">
                     <div class="container" id="container-intro">
                         <h3 class="text-center">Let's go!</h3>
+                        <img class="margin-intro-image" src="assets/img/finger.png" alt="Description of the image" width="100" style="margin-left: 100px;">
                     </div>
                 </div>
             </div>
