@@ -36,7 +36,7 @@
                                 <div class="row">
                                     <div class="col-9 col-md-10 mx-1 hover">
                                         <div class="container hover" id="container-home-two">
-                                            <h5 class="mt-3">Artificial Inteligence</h5>
+                                            <h6 class="mt-3">Artificial Inteligence</h6>
                                         </div>
                                     </div>
                                     <div class="col-1 col-md-1 mt-2 ">
@@ -52,7 +52,7 @@
                                 <div class="row">
                                     <div class="col-9 col-md-10 mx-1">
                                         <div class="container hover" id="container-home-one">
-                                            <h5 class="mt-3" >Learning Material</h5>
+                                            <h6 class="mt-3" >Learning Material</h6>
                                         </div>
                                     </div>
                                     <div class="col-1 col-md-1 mt-2 ">
@@ -69,11 +69,7 @@
     <script>
     var container = document.getElementById("container-home-one");
     container.addEventListener("click", function() {
-        window.location.href = "learning.php";
-    });
-    var container_two = document.getElementById("container-home-two");
-    container_two.addEventListener("click", function() {
-        window.location.href = "artificial.php";
+        window.location.href = "login.php";
     });
     var container_two = document.getElementById("container-home-two");
     container_two.addEventListener("click", function() {

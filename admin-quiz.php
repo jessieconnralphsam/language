@@ -69,10 +69,10 @@ $result = $connection->query($query);
     <div class="container">
         <div class="row mt-1">
             <div class="col col-md-8">
-                <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+                <h1>Manage Quiz</h1>
             </div>
             <div class="col-3 col-md-2">
-                <button type="button" onclick="redirectToPage()" class="btn btn-success">Quiz</button>
+                <button class="btn btn-secondary" onclick="redirectToPage()" name="logout">Back</button>
             </div>
             <div class="col-3 col-md-1">
                 <form method="post" action="">
@@ -85,7 +85,7 @@ $result = $connection->query($query);
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Quiz Title</th>
                         <th>Key</th>
                         <th>Actions</th>
                     </tr>
@@ -119,7 +119,7 @@ $result = $connection->query($query);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
     function redirectToPage() {
-    window.location.href = 'admin-quiz.php';
+    window.location.href = 'manage.php';
     }
     </script>
 </body>

@@ -19,8 +19,8 @@ if(isset($_GET['invalid']) && $_GET['invalid'] == 'true'){
             <div class="col">
                 <img src="assets/img/arrow-2.png" alt="Description of the image" width="200">
             </div>
-            <h5 class="text-center">admin login!!</h5>
-            <p class="text-center">Manage Video Learning Material</p>  
+            <h5 class="text-center">Login Here</h5>
+            <p class="text-center">Lorem ipsum dolor sit amet.</p>  
         </div>
     </div>
     <div class="container">
@@ -34,6 +34,7 @@ if(isset($_GET['invalid']) && $_GET['invalid'] == 'true'){
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" onclick="redirectToPage()" class="btn btn-danger">Register</button>
     </form>
     </div>
     <script>
@@ -41,6 +42,9 @@ if(isset($_GET['invalid']) && $_GET['invalid'] == 'true'){
     container.addEventListener("click", function() {
         window.location.href = "home.php";
     });
+    function redirectToPage() {
+    window.location.href = 'learning-home.php';
+    }
     </script>
 </body>
 </html>
