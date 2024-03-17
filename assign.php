@@ -82,7 +82,7 @@ $result_students = $conn->query($sql_students);
     <script>
     var container = document.getElementById("container-home");
     container.addEventListener("click", function() {
-        window.location.href = "learning-home.php";
+        window.location.href = "admin-quiz.php";
     });
     </script>
 </body>
