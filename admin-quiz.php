@@ -86,28 +86,16 @@ $result = $connection->query($query);
                 <thead>
                     <tr>
                         <th>Quiz Title</th>
-                        <th>Key</th>
-                        <th>Actions</th>
+                        <th>Link</th>
+                        <th>Monitor</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>".$row['tutorial_name']."</td>";
-                            echo "<td>".$row['embed_key']."</td>";
-                            echo "<td>";
-                            echo '<button class="btn btn-primary mb-3">Edit</button> ';
-                            echo '<button class="btn btn-danger mb-3">Delete</button>';                        
-                            echo "</td>";
-                            echo "</tr>";
-                        }
-
-                    } else {
-                        echo "<tr><td colspan='3'>No data found</td></tr>";
-                    }
-                    ?>
+                    <td>Sample</td>
+                    <td>Lorem, ipsum.</td>
+                    <td>Lorem, ipsum.</td>
+                    <td>Lorem, ipsum.</td>
                 </tbody>
             </table>
         </div>

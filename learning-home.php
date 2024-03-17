@@ -1,19 +1,46 @@
 <html lang="en">
 <?php include 'includes/header.php'; ?>
+<?php
+    session_start(); 
+    
+    if (isset($_SESSION['username']) && isset($_SESSION['roleID'])) {
 
+        if ($_SESSION['roleID'] == 1) {
+            header("Location: manage.php");
+            exit();
+        } elseif ($_SESSION['roleID'] == 2) {
+            header("Location: learning-home.php");
+            exit();
+        } else {
+
+            header("Location: login.php");
+            exit();
+        }
+    }
+    if (isset($_POST['logout'])) {
+    
+        session_destroy();
+
+        header("Location: home.php");
+        exit();
+    }
+?>
 <body style="background-color: #e8f3e2;">
     <div class="container">
-        <div class="row">
+        <div class="row mt-2">
             <div class="col mt-2">
-                <div class="container" id="container-home">
-                    <img src="assets/img/previous.png" alt="Description of the image" width="50">
+                <div class="container hover" id="container-home">
+                    <img class="margin-intro-image mt-1 mx-1" src="assets/img/woman.png" alt="Description of the image" width="50">
+                    <h6><?php echo $_SESSION['username']; ?></h6>
                 </div>
             </div>
             <div class="col">
 
             </div>
             <div class="col">
-                <img src="assets/img/arrow-2.png" alt="Description of the image" width="200">
+                <form method="post" action="">
+                            <button class="btn btn-primary" type="submit" name="logout">Logout</button>
+                </form>
             </div>
             <h1 class="text-center">Hello!</h1>
             <p class="text-center">Learners </p>  
@@ -63,7 +90,7 @@
     <script>
     var container = document.getElementById("container-home");
     container.addEventListener("click", function() {
-        window.location.href = "quiz.php";
+        window.location.href = "profile.php";
     });
     var container = document.getElementById("container-home-one");
     container.addEventListener("click", function() {

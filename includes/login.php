@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -22,10 +21,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
 
         $_SESSION['username'] = $username;
-        header("Location: ../manage.php");
-        exit();
+        
+        
+        if ($row['roleID'] == 1) {
+            header("Location: ../manage.php");
+            exit();
+        } elseif ($row['roleID'] == 2) {
+            header("Location: ../learning-home.php");
+            exit();
+        } else {
+            
+            header("Location: ../login.php");
+            exit();
+        }
     } else {
         header("Location: ../login.php?invalid=true"); 
         exit();
