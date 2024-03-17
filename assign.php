@@ -52,7 +52,7 @@ $result_students = $conn->query($sql_students);
         </div>
     </div>
     <div class="container d-flex justify-content-center">
-        <h2>Assign Students to Quizzes</h2><br>
+        <h2>Assign Quiz to student(s)</h2><br>
     </div>
     <div class="container d-flex justify-content-center mt-4">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
