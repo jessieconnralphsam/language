@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
 
+        $_SESSION['user_id'] = $row['id'];
         $_SESSION['username'] = $username;
-        
         
         if ($row['roleID'] == 1) {
             header("Location: ../manage.php");
@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../learning-home.php");
             exit();
         } else {
-            
             header("Location: ../login.php");
             exit();
         }

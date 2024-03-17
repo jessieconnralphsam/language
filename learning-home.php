@@ -29,9 +29,9 @@
     <div class="container">
         <div class="row mt-2">
             <div class="col mt-2">
-                <div class="container hover" id="container-home">
+                <div class="container  d-flex justify-content-center align-items-center hover" id="container-home">
                     <img class="margin-intro-image mt-1 mx-1" src="assets/img/woman.png" alt="Description of the image" width="50">
-                    <h6><?php echo $_SESSION['username']; ?></h6>
+                    <h6>Welcome, <?php echo $_SESSION['username']; ?></h6>
                 </div>
             </div>
             <div class="col">
@@ -60,7 +60,7 @@
                                             </div>
                                         </div>
                                         <div class="col-1 col-md-1 mt-2 ">
-                                            <img src="assets/img/image-processing.png" alt="Description of the image" width="40">
+                                            <img src="assets/img/video-player.png" alt="Description of the image" width="40">
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                                             </div>
                                         </div>
                                         <div class="col-1 col-md-1 mt-2 ">
-                                            <img src="assets/img/reading.png" alt="Description of the image" width="40">
+                                            <img src="assets/img/brain.png" alt="Description of the image" width="40">
                                         </div>
                                     </div>
                                 </div>

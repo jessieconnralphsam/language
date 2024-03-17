@@ -12,6 +12,13 @@ if(isset($_GET['register']) && $_GET['register'] === 'success') {
 }
 ?>
 <?php include 'includes/header.php'; ?>
+
+
+<style>
+    .container-login{
+        width: 400px;
+    }
+</style>
 <body style="background-color: #e8f3e2;">
     <div class="container">
         <div class="row">
@@ -26,18 +33,17 @@ if(isset($_GET['register']) && $_GET['register'] === 'success') {
             <div class="col">
                 <img src="assets/img/arrow-2.png" alt="Description of the image" width="200">
             </div>
-            <h5 class="text-center">Login Here</h5>
-            <p class="text-center">Lorem ipsum dolor sit amet.</p>  
+            <h1 class="text-center">login</h1>
         </div>
     </div>
-    <div class="container">
+    <div class="container container-login">
     <form method="post" action="includes/login.php">
         <div class="form-group">
-            <label for="username">Username</label>
+            <strong><label for="username">Username</label></strong>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
         </div>
         <div class="form-group mb-2">
-            <label for="password">Password</label>
+            <strong><label for="password">Password</label></strong>
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
