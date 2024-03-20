@@ -37,7 +37,7 @@
     <script>
     var container = document.getElementById("container-home");
     container.addEventListener("click", function() {
-        window.location.href = "home.php";
+        window.location.href = "learning-home.php";
     });
     </script>
     <script>

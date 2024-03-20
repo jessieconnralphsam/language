@@ -55,7 +55,7 @@ if(isset($_GET['invalid']) && $_GET['invalid'] == 'true'){
     <script>
     var container = document.getElementById("container-home");
     container.addEventListener("click", function() {
-        window.location.href = "login.php";
+        window.location.href = "index.php";
     });
     function redirectToPage() {
     window.location.href = 'learning-home.php';

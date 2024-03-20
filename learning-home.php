@@ -21,7 +21,7 @@
     
         session_destroy();
 
-        header("Location: home.php");
+        header("Location: index.php");
         exit();
     }
 ?>
@@ -66,6 +66,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-12  col-md-12 mt-3">
+                            <div class="col col-md-6 mx-1 border border-success p-2 rounded-4" style="--bs-border-opacity: .5;">
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-9 col-md-10 mx-1">
+                                            <div class="container hover" id="container-home-three">
+                                                <h6 class="mt-3">Artificial Intelligence</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 col-md-1 mt-2 ">
+                                            <img src="assets/img/machine-learning.png" alt="Description of the image" width="40">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col  col-md-12 mt-3">
                             <div class="col col-md-6 mx-1 border border-success p-2 rounded-4" style="--bs-border-opacity: .5;">
                                 <div class="row">
@@ -92,13 +108,17 @@
     container.addEventListener("click", function() {
         window.location.href = "profile.php";
     });
-    var container = document.getElementById("container-home-one");
-    container.addEventListener("click", function() {
+    var container_one = document.getElementById("container-home-one");
+    container_one.addEventListener("click", function() {
         window.location.href = "quiz.php";
     });
     var container_two = document.getElementById("container-home-two");
     container_two.addEventListener("click", function() {
         window.location.href = "learning.php";
+    });
+    var container_three = document.getElementById("container-home-three");
+    container_three.addEventListener("click", function() {
+        window.location.href = "artificial.php";
     });
     </script>
 
