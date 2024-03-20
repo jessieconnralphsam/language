@@ -70,37 +70,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script type="text/javascript">
-        // the link to your model provided by Teachable Machine export panel
+
         const URL = "http://localhost/language/";
 
         let model, webcam, labelContainer, maxPredictions;
 
-        // Load the image model and setup the webcam
+
         async function init() {
-            // Check if the browser supports getUserMedia
+
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
                 alert('Your browser does not support getUserMedia API');
                 return;
             }
 
             try {
-                // Request permission to access the webcam
+
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
 
-                // Load the model and metadata
+
                 const modelURL = URL + "model/model.json";
                 const metadataURL = URL + "model/metadata.json";
                 model = await tmImage.load(modelURL, metadataURL);
                 maxPredictions = model.getTotalClasses();
 
-                // Convenience function to setup a webcam
-                const flip = true; // whether to flip the webcam
-                webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-                await webcam.setup(stream); // Use the obtained stream
+                const flip = true; 
+                webcam = new tmImage.Webcam(200, 200, flip); 
+                await webcam.setup(stream); 
                 await webcam.play();
                 window.requestAnimationFrame(loop);
 
-                // Append elements to the DOM
+
                 document.getElementById("webcam-container").appendChild(webcam.canvas);
                 labelContainer = document.getElementById("label-container");
             } catch (error) {
@@ -111,21 +110,21 @@
 
 
         async function loop() {
-            webcam.update(); // update the webcam frame
+            webcam.update(); 
             await predict();
             window.requestAnimationFrame(loop);
         }
 
-        // run the webcam image through the image model
+
         async function predict() {
-            // predict can take in an image, video or canvas html element
+
             const prediction = await model.predict(webcam.canvas);
             const maxPredictionIndex = getIndexOfMaxPrediction(prediction);
             const classPrediction = prediction[maxPredictionIndex].className;
             labelContainer.innerHTML = classPrediction;
         }
 
-        // Helper function to get the index of the class with the highest probability
+
         function getIndexOfMaxPrediction(predictions) {
             let maxIndex = 0;
             let maxProbability = predictions[0].probability;
