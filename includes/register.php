@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if(mysqli_query($conn, $sql)){
 
-        header("Location: ../login.php?register=success");
+        header("Location: ../index.php?register=success");
         exit(); 
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);

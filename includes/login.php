@@ -33,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../learning-home.php");
             exit();
         } else {
-            header("Location: ../login.php");
+            header("Location: ../index.php");
             exit();
         }
     } else {
-        header("Location: ../login.php?invalid=true"); 
+        header("Location: ../index.php?invalid=true"); 
         exit();
     }
 }
