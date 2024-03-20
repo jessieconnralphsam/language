@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2024 at 01:20 PM
+-- Generation Time: Mar 20, 2024 at 07:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,14 +34,6 @@ CREATE TABLE `assigned_quiz` (
   `cdate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `assigned_quiz`
---
-
-INSERT INTO `assigned_quiz` (`assigned_id`, `id`, `quizID`, `cdate`) VALUES
-(14, 12, 8, '2024-03-17 18:55:40'),
-(15, 12, 8, '2024-03-17 18:57:13');
-
 -- --------------------------------------------------------
 
 --
@@ -54,13 +46,6 @@ CREATE TABLE `quiz` (
   `quiz_link` varchar(255) NOT NULL,
   `monitor_link` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `quiz`
---
-
-INSERT INTO `quiz` (`quizID`, `quiz`, `quiz_link`, `monitor_link`) VALUES
-(8, 'Sample Quiz', 'https://www.youtube.com/watch?v=xvFZjo5PgG0', 'https://www.youtube.com/watch?v=xvFZjo5PgG0');
 
 -- --------------------------------------------------------
 
@@ -94,14 +79,6 @@ CREATE TABLE `user` (
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `roleID`, `username`, `name`, `password`) VALUES
-(6, 1, 'admin', 'gerlie paclibar', 'admin'),
-(12, 2, 'jessie', 'gerlie ng mundo', 'jessie');
 
 -- --------------------------------------------------------
 
@@ -170,13 +147,13 @@ ALTER TABLE `video_tutorial`
 -- AUTO_INCREMENT for table `assigned_quiz`
 --
 ALTER TABLE `assigned_quiz`
-  MODIFY `assigned_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `assigned_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `quizID` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `quizID` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -188,7 +165,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `video_tutorial`
