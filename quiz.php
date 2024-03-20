@@ -3,7 +3,10 @@
 <?php include 'includes/header.php'; ?>
 <?php
 session_start();
-
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php"); 
+    exit();
+}
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -25,7 +28,6 @@ $sql = "SELECT quiz.quiz, quiz.quiz_link, assigned_quiz.cdate
 
 $result = $conn->query($sql);
 ?>
-
 <head>
     <title>Assigned Quizzes</title>
 </head>

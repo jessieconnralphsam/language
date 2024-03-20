@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Language</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body style="background-color: #e8f3e2;">
-
-    <?php
+<?php
     session_start();
     if (!isset($_SESSION['username'])) {
         header("Location: login.php"); 
@@ -35,6 +26,14 @@
     $result = $connection->query($query);
     ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Language</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #e8f3e2;">
     <!-- Add New Modal -->
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -1,8 +1,9 @@
-<html lang="en">
-<?php include 'includes/header.php'; ?>
 <?php
     session_start(); 
-    
+    if (!isset($_SESSION['username'])) {
+        header("Location: index.php"); 
+        exit();
+    }
     if (isset($_SESSION['username']) && isset($_SESSION['roleID'])) {
 
         if ($_SESSION['roleID'] == 1) {
@@ -12,7 +13,6 @@
             header("Location: learning-home.php");
             exit();
         } else {
-
             header("Location: login.php");
             exit();
         }
@@ -25,11 +25,13 @@
         exit();
     }
 ?>
+<html lang="en">
+<?php include 'includes/header.php'; ?>
 <body style="background-color: #e8f3e2;">
     <div class="container">
         <div class="row mt-2">
             <div class="col mt-2">
-                <div class="container  d-flex justify-content-center align-items-center hover" id="container-home">
+                <div class="container  d-flex justify-content-center align-items-center hover">
                     <img class="margin-intro-image mt-1 mx-1" src="assets/img/woman.png" alt="Description of the image" width="50">
                     <h6>Welcome, <?php echo $_SESSION['username']; ?></h6>
                 </div>
@@ -104,10 +106,6 @@
         </div>
     </div>
     <script>
-    var container = document.getElementById("container-home");
-    container.addEventListener("click", function() {
-        window.location.href = "profile.php";
-    });
     var container_one = document.getElementById("container-home-one");
     container_one.addEventListener("click", function() {
         window.location.href = "quiz.php";

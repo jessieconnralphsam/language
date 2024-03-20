@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: login.php"); 
+    header("Location: index.php"); 
     exit();
 }
 if (isset($_POST['logout'])) {
@@ -71,17 +71,18 @@ $result = $connection->query($query);
             <div class="col col-md-8">
                 <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
             </div>
-            <div class="col-3 col-md-2">
-                <button type="button" onclick="redirectToPage()" class="btn btn-success">Quiz</button>
-            </div>
+            <!-- <div class="col-3 col-md-2 border d-flex justify-content-end align-items-center">
+                <button type="button" onclick="redirectToPage()" class="btn btn-success mt-0">Quiz</button>
+            </div> -->
             <div class="col-3 col-md-1">
                 <form method="post" action="">
-                    <button class="btn btn-primary" type="submit" name="logout">Logout</button>
-                </form>
+                    <button class="btn btn-primary mt-2" type="submit" name="logout">Logout</button>
+                </form>  
             </div>
         </div>
         <div class="container mt-5">
             <button class="btn btn-success mb-3" data-toggle="modal" data-target="#addModal">Add New</button>
+            <button type="button" onclick="redirectToPage()" class="btn btn-primary mb-3">Quiz</button>
             <table class="table">
                 <thead>
                     <tr>
