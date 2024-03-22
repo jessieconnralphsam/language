@@ -92,6 +92,47 @@ $result = $connection->query($query);
                     </tr>
                 </thead>
                 <tbody>
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Tutorial</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="includes/edit.php" method="post">
+                                        <input type="hidden" id="editTutorialId" name="tutorialId">
+                                        <div class="form-group">
+                                            <label for="editTutorialName">Tutorial Name</label>
+                                            <input type="text" class="form-control" id="editTutorialName" name="tutorialName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editEmbedKey">Embed Key</label>
+                                            <input type="text" class="form-control" id="editEmbedKey" name="embedKey" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                    function populateEditModal(tutorialId, tutorialName, embedKey) {
+                        $('#editTutorialId').val(tutorialId);
+                        $('#editTutorialName').val(tutorialName);
+                        $('#editEmbedKey').val(embedKey);
+                        $('#editModal').modal('show');
+                    }
+                    </script>
+                    <script>
+                    function confirmDelete(videoID) {
+                        if (confirm("Are you sure you want to delete this video tutorial?")) {
+                            window.location.href = 'includes/delete.php?videoID=' + videoID;
+                        }
+                    }
+                    </script>
                     <?php
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -99,8 +140,8 @@ $result = $connection->query($query);
                             echo "<td>".$row['tutorial_name']."</td>";
                             echo "<td>".$row['embed_key']."</td>";
                             echo "<td>";
-                            echo '<button class="btn btn-primary mb-3">Edit</button> ';
-                            echo '<button class="btn btn-danger mb-3">Delete</button>';                        
+                            echo '<button class="btn btn-primary mb-3" onclick="populateEditModal('.$row['videoID'].', \''.$row['tutorial_name'].'\', \''.$row['embed_key'].'\')">Edit</button> ';
+                            echo '<button class="btn btn-danger mb-3" onclick="confirmDelete('.$row['videoID'].')">Delete</button>';                       
                             echo "</td>";
                             echo "</tr>";
                         }

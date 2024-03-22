@@ -55,7 +55,7 @@ $result_students = $conn->query($sql_students);
         <h2>Assign Quiz to student(s)</h2><br>
     </div>
     <div class="container d-flex justify-content-center mt-4">
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <form id="quizForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validateForm()">
             <strong><label for="quizID">Select Quiz:</label></strong>
             <select name="quizID" id="quizID">
                 <?php
@@ -79,6 +79,18 @@ $result_students = $conn->query($sql_students);
             <input type="submit" value="Assign Students">
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"][name="students[]"]:checked');
+            if (checkboxes.length === 0) {
+                alert("No student is selected.");
+                return false; // Prevent form submission
+            }
+            return true; 
+        }
+    </script>
+
     <script>
     var container = document.getElementById("container-home");
     container.addEventListener("click", function() {

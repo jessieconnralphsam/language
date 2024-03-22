@@ -94,17 +94,63 @@
                         <th>Action</th>
                     </tr>
                 </thead>
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Quiz Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="includes/edit_quiz.php" method="post">
+                                        <input type="hidden" id="editquizId" name="editquizId">
+                                        <div class="form-group">
+                                            <label for="editquizName">Quiz Name:</label>
+                                            <input type="text" class="form-control" id="editquizName" name="editquizName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editquizlink">Quiz Link:</label>
+                                            <input type="text" class="form-control" id="editquizlink" name="editquizlink" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editmonitorlink">Monitor Link:</label>
+                                            <input type="text" class="form-control" id="editmonitorlink" name="editmonitorlink" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <tbody>
+                    <script>
+                    function populateEditModal(quiz_id, quiz_name, quiz_link, monitor_link) {
+                        $('#editquizId').val(quiz_id);
+                        $('#editquizName').val(quiz_name);
+                        $('#editquizlink').val(quiz_link);
+                        $('#editmonitorlink').val(monitor_link);
+                        $('#editModal').modal('show');
+                    }
+                    </script>
+                    <script>
+                    function confirmDelete(quizID) {
+                        if (confirm("Are you sure you want to delete this video tutorial?")) {
+                            window.location.href = 'includes/delete_quiz.php?quizID=' + quizID;
+                        }
+                    }
+                    </script>
                     <?php
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>".$row['quiz']."</td>";
-                            echo "<td>".$row['quiz_link']."</td>";
-                            echo "<td><a href='" . $row['monitor_link'] . "'>" . $row['monitor_link'] . "</a></td>";
+                            echo "<td>". (strlen($row['quiz_link']) > 15 ? substr($row['quiz_link'], 0, 15) . '...' : $row['quiz_link']) . "</td>";
+                            echo "<td><a href='" . $row['monitor_link'] . "'>" . (strlen($row['monitor_link']) > 15 ? substr($row['monitor_link'], 0, 15) . '...' : $row['monitor_link']) . "</a></td>";
                             echo "<td>";
-                            echo '<button class="btn btn-primary mb-3">Edit</button> ';
-                            echo '<button class="btn btn-danger mb-3">Delete</button>';                        
+                            echo '<button class="btn btn-primary mb-3" onclick="populateEditModal('.$row['quizID'].', \''.$row['quiz'].'\', \''.$row['quiz_link'].'\',\''.$row['monitor_link'].'\')">Edit</button> ';
+                            echo '<button class="btn btn-danger mb-3" onclick="confirmDelete('.$row['quizID'].')">Delete</button>';                        
                             echo "</td>";
                             echo "</tr>";
                         }

@@ -74,7 +74,7 @@ $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>" . $row["quiz"] . "</td>";
-                            echo "<td><a href='" . $row["quiz_link"] . "'>" . $row["quiz_link"] . "</a></td>";
+                            echo "<td><a href='" . $row["quiz_link"] . "'>" . (strlen($row["quiz_link"]) > 10 ? substr($row["quiz_link"], 0, 10) . '...' : $row["quiz_link"]) . "</a></td>";
                             echo "<td>" . $row["cdate"] . "</td>";
                             echo "</tr>";
                         }
